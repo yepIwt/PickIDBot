@@ -17,7 +17,7 @@ async def send_welcome(message: types.Message):
 @dp.message_handler(content_types = ["any"])
 async def send_id(message: types.Message):
 	if message.photo:
-		id = message.photo.file_id
+		id = message.photo[-1].file_id
 	elif message.document:
 		id = message.document.file_id
 	elif message.voice:
