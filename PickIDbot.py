@@ -26,6 +26,8 @@ async def send_id(message: types.Message):
 		id = message.audio.file_id
 	elif message.sticker:
 		id = message.sticker.file_id
+	elif message.forward_from:
+		id = message.forward_from.id
 	else:
 		id = message.from_user.id
 	await message.reply(f"```{id}```",parse_mode='Markdown')
